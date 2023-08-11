@@ -6,7 +6,7 @@ License: MIT
 """
 
 # Import main functionalities for easier access to end users
-from .core import RGBZColor, some_rgbz_function
+from .core import *
 from .io import read_rgbz_file, write_rgbz_file
 from .visualizer import visualize_rgbz
 
