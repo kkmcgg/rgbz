@@ -6,8 +6,8 @@ License: MIT
 """
 
 # Import main functionalities for easier access to end users
-from .core import *
-from .io import read_rgbz_file, write_rgbz_file
+from .core import method1_encode, method1_decode
+from .io import read_tiff, write_png
 from .visualizer import visualize_rgbz
 
 # Define package-wide constants (if they exist in constants.py)
@@ -18,10 +18,10 @@ from .exceptions import RGBZError, RGBZValueError
 
 # Define what gets imported with "from rgbz import *"
 __all__ = [
-    "RGBZColor", 
-    "some_rgbz_function",
-    "read_rgbz_file",
-    "write_rgbz_file",
+    "method1_encode",
+    "method1_decode",
+    "read_tiff",
+    "write_png",
     "visualize_rgbz",
     "MAX_VALUE",
     "MIN_VALUE",
