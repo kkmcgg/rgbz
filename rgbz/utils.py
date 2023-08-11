@@ -35,9 +35,10 @@ def hsv_to_rgb(h, s, v):
 
     return (r * 255).astype(np.int), (g * 255).astype(np.int), (b * 255).astype(np.int)
 
-# Example usage
-h = np.array([10, 50])
-s = np.array([128, 200])
-v = np.array([200, 150])
-r, g, b = hsv_to_rgb(h, s, v)
-print(f"RGB: {list(zip(r, g, b))}")
+if __name__=='__main__':
+    # Example usage
+    h = np.array([10, 50])
+    s = np.array([128, 200])
+    v = np.array([200, 150])
+    r, g, b = hsv_to_rgb(h, s, v)
+    print(f"RGB: {list(zip(r, g, b))}")
