@@ -1,6 +1,8 @@
 # rgbz
-
-![nologo](path_to_your_logo_or_banner.png)
+<p float="center">
+  <img src="Figure_grey.png" width="200" />
+  <img src="Figure_rgba.png" width="200" /> 
+</p>
 
 Mapping elevation data to 24-bit RGB in PNG tiles.
 
@@ -13,6 +15,32 @@ Mapping elevation data to 24-bit RGB in PNG tiles.
 - Encode elevation data into RGB PNG tiles.
 - Decode RGB PNG to extract elevation data.
 - Render elevation using color gradients.
+
+## Method 1: Encoding Elevation to RGB
+
+This method translates elevation data into an RGB image representation:
+
+1. **Clamping:** 
+   - Elevation values are constrained between `MIN_ELEVATION` and `MAX_ELEVATION`.
+
+2. **Normalization:** 
+   - Data is scaled to fit within a [0,1] range.
+
+3. **Scaling:** 
+   - Elevation data is amplified by a factor of \(2^{24}\) in preparation for RGB conversion.
+
+4. **Channel Conversion:** 
+   - The 24-bit scaled elevation value is segregated into three 8-bit segments, corresponding to Red, Green, and Blue channels. This way, each channel represents a portion of the elevation, allowing a three-dimensional data representation using RGB colors.
+
+5. **RGB Image Creation:** 
+   - The separate R, G, and B arrays are then assembled to yield the RGB image, where each pixel color encodes an elevation value.
+
+<p float="center">
+  <img src="Method1_grey.png" width="200" />
+  <img src="Method1_rgba.png" width="200" /> 
+</p>
+
+
 
 ## Installation
 

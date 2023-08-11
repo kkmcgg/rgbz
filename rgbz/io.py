@@ -8,7 +8,6 @@ and writing them as RGB values to PNG files.
 import numpy as np
 from tifffile import imread
 from PIL import Image
-from .core import float_to_rgb # not implemeted
 
 def read_tiff(tiff_path):
     """
@@ -24,27 +23,17 @@ def read_tiff(tiff_path):
 
 def write_png(data, png_path):
     """
-    Write a numpy array with elevation data to a PNG file as RGB values.
+    Write a numpy array with RGB or RGBA data to a PNG file.
 
     Parameters:
-    - data (numpy.array): Elevation data.
+    - data (numpy.array): RGB or RGBA data.
     - png_path (str): Path where the PNG file should be saved.
     """
-    # Assuming data is a 2D array where each element is a 24-bit float
-    # representing elevation that we want to convert to an RGB value
 
-    # Get the shape of the data
-    height, width = data.shape
+    # Check if the data is either RGB or RGBA
+    if data.shape[-1] not in [3, 4]:
+        raise ValueError("Input data must be RGB or RGBA format")
 
-    # Create an empty 3D array to store RGB values
-    rgb_image = np.zeros((height, width, 3), dtype=np.uint8)
-
-    for i in range(height):
-        for j in range(width):
-            r, g, b = float_to_rgb(data[i, j]) 
-            rgb_image[i, j] = [r, g, b]
-
-    # Use Pillow to save the RGB image as PNG
-    im = Image.fromarray(rgb_image)
+    # Use Pillow to save the RGB or RGBA image as PNG
+    im = Image.fromarray(data)
     im.save(png_path)
-

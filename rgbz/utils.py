@@ -1,5 +1,43 @@
 import numpy as np
 
+def clamp(array,min_val,max_val):
+    '''returns an array clamped between min and max'''
+    return np.clip(array, min_val, max_val)
+
+def normalize(array):
+    ''' returns an array normalized from 0 to 1 '''
+    min_val = np.min(array)
+    max_val = np.max(array)
+    return (array - min_val) / (max_val - min_val)
+
+def rgb_like(input_array, bit_depth=8, channels=3):
+    """
+    Create an empty RGB or RGBA array with the shape of the input 2D array.
+
+    Parameters:
+    - input_array (numpy.ndarray): The input 2D array.
+    - bit_depth (int): Depth of the new array (8 or 16 bits).
+    - channels (int): Number of channels (3 for RGB, 4 for RGBA).
+
+    Returns:
+    - numpy.ndarray: An empty RGB or RGBA array.
+    """
+    
+    if bit_depth == 8:
+        dtype = np.uint8
+    elif bit_depth == 16:
+        dtype = np.uint16
+    else:
+        raise ValueError("bit_depth should be 8 or 16")
+    
+    if channels not in [3, 4]:
+        raise ValueError("channels should be 3 (RGB) or 4 (RGBA)")
+    
+    # Determine the new shape
+    new_shape = (*input_array.shape, channels)
+
+    return np.empty(new_shape, dtype=dtype)
+
 def hsv_to_rgb(h, s, v):
     h = h * 2
     s = s / 255.0
