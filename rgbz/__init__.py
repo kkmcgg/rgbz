@@ -1,8 +1,8 @@
 """
 RGBZ - A Python package for manipulating and working with RGBZ color data.
 
-Author: Your Name
-License: Your License (e.g., MIT)
+Author: Kevin Kirkaldy McGuigan
+License: MIT
 """
 
 # Import main functionalities for easier access to end users
