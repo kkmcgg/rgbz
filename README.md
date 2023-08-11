@@ -17,7 +17,7 @@ Mapping elevation data to 24-bit RGB in PNG tiles.
 ## Installation
 
 ```bash
-git clone https://github.com/your_username/rgbz.git
+git clone https://github.com/kkmcgg/rgbz.git
 cd rgbz
 pip install -r requirements.txt
 ```
@@ -29,6 +29,10 @@ python rgbz.py encode --input elevation_data.txt --output encoded_image.png
 
 # Decode RGB PNG
 python rgbz.py decode --input encoded_image.png --output elevation_data.txt
+
+# Testing 
+
+python -m unittest discover -s rgbz/tests
 
 # Contributing
 Pull requests are welcome. For major changes, open an issue first.
