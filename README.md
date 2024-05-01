@@ -36,8 +36,8 @@ This method translates elevation data into an RGB image representation:
    - The separate R, G, and B arrays are then assembled to yield the RGB image, where each pixel color encodes an elevation value.
 
 <p float="center">
-  <img src="Method1_grey.png" width="200" />
-  <img src="Method1_rgba.png" width="200" /> 
+  <img src="Method1_grey.png" width="500" />
+  <img src="Method1_rgba.png" width="500" /> 
 </p>
 
 
